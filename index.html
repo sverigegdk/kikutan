@@ -3,63 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>「聴く」を探求するウェブサイト - コンセプト</title> <!-- ウェブサイトのタブに表示されるタイトル -->
+    <title>「聴く」の真髄を探求する | ホスティング講座</title> <!-- ウェブサイトのタブに表示されるタイトルをランディングページ向けに更新 -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* カスタムフォントと基本スタイルの設定 */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e0f2fe; /* Light blue background */
+            background: linear-gradient(to bottom right, #e0f2fe, #bbdefb); /* 柔らかいグラデーション背景 */
+            color: #333;
+            line-height: 1.6;
         }
-        /* Custom styles for diagram-like presentation */
+        /* セクション共通スタイル */
+        .section-container {
+            background-color: #ffffff; /* 白い背景 */
+            padding: 50px 20px; /* 上下のパディングを増やす */
+            margin-bottom: 30px;
+            border-radius: 15px; /* 角を丸くする */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* 影を強調 */
+            max-width: 960px; /* 最大幅を調整 */
+            width: 95%; /* レスポンシブ対応 */
+            text-align: center;
+        }
+        /* ヒーローセクション固有スタイル */
+        .hero-section {
+            background: linear-gradient(to right, #4a90e2, #6a82fb); /* ヒーローセクションのグラデーション */
+            color: white;
+            padding: 80px 20px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .hero-section h1 {
+            font-size: 3.5rem; /* 大見出しのサイズ */
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        .cta-button {
+            background-color: #ff6347; /* 目立つCTAボタンの色 */
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px; /* 丸いボタン */
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            display: inline-block; /* 中央寄せとマージンのためにブロック要素に */
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #e55337;
+            transform: translateY(-3px); /* ホバーで少し浮き上がる */
+        }
+        /* 各コンセプトセクションのスタイル */
         .concept-section {
             background-color: #f8fafc; /* Lighter background for sections */
-            border-left: 5px solid #60a5fa; /* Blue border on left */
-            padding: 25px;
+            border-left: 6px solid #60a5fa; /* Blue border on left */
+            padding: 30px; /* パディングを調整 */
             margin-bottom: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08); /* 影を調整 */
+            text-align: left; /* テキストを左寄せに */
+            transition: transform 0.2s ease-in-out;
+        }
+        .concept-section:hover {
+            transform: translateY(-5px); /* ホバーで少し浮き上がる */
         }
         .concept-heading {
-            font-size: 1.8em;
+            font-size: 2.2rem; /* 小見出しのサイズ */
             font-weight: bold;
             color: #2563eb; /* Darker blue for subheadings */
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
         .concept-heading .icon {
-            margin-right: 10px;
-            font-size: 1.5em; /* Icon size */
+            margin-right: 15px;
+            font-size: 2rem; /* Icon size */
         }
         .diagram-box {
-            background-color: #dbeafe; /* Lightest blue */
-            border: 1px solid #93c5fd;
-            padding: 15px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            border-radius: 8px;
+            background-color: #eef7ff; /* より明るい青 */
+            border: 1px solid #a9d6ff;
+            padding: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
             text-align: left;
-            font-size: 0.95em;
-            color: #1e3a8a;
-            line-height: 1.5;
+            font-size: 1.05em;
+            color: #1a56a0; /* テキストカラーを調整 */
+            line-height: 1.8;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* 内側の影 */
         }
         .arrow {
-            font-size: 1.5em;
+            font-size: 2em; /* 矢印のサイズ */
             color: #3b82f6;
-            margin: 10px 0;
+            margin: 15px 0;
             text-align: center;
+        }
+        /* フッターセクション */
+        .footer-section {
+            background-color: #4a90e2;
+            color: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .footer-section p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        /* レスポンシブ調整 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+            .concept-heading {
+                font-size: 1.8rem;
+            }
+            .concept-heading .icon {
+                font-size: 1.8rem;
+            }
+            .section-container {
+                padding: 30px 15px;
+            }
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 12px 25px;
+            }
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-5">
-    <div class="container bg-white p-10 rounded-2xl shadow-xl text-center max-w-3xl w-full">
-        <h1 class="text-5xl font-extrabold text-blue-700 mb-8 leading-tight">「聴く」ことの真髄：心に寄り添うホスティング</h1>
+<body class="flex flex-col items-center py-10">
+    <!-- ヒーローセクション -->
+    <div class="hero-section flex flex-col items-center justify-center w-full">
+        <h1>心に届く「聴く力」を磨く</h1>
+        <p>単なる受動的な聴取を超え、相手の心を深く理解し、寄り添う「ホスティング」の極意を学びませんか？</p>
+        <a href="#course-details" class="cta-button">詳しくはこちら</a>
+    </div>
 
+    <!-- メインコンテンツコンテナ -->
+    <div class="section-container">
         <!-- Section 1: 聴くことの力 -->
         <div class="concept-section">
-            <h2 class="concept-heading"><span class="icon">👂</span> 聴くことの力</h2>
-            <p class="text-lg text-gray-700 mb-4 text-left">
+            <h2 class="concept-heading"><span class="icon">👂</span> 聴くことの力：奇跡を起こす瞬間</h2>
+            <p class="text-lg text-gray-700 mb-4">
                 誰かにただ話を聞いてもらうだけで、心が救われたり、元気が出たりする経験はありませんか？
                 それは、聞き手が「聴き方」の達人だったからです。
                 相手に寄り添い、その気持ちを受け止める「聴く力」は、人間関係において非常に重要です。
@@ -68,8 +171,8 @@
 
         <!-- Section 2: 聴くことの難しさ -->
         <div class="concept-section">
-            <h2 class="concept-heading"><span class="icon">🤔</span> 聴くことの難しさ</h2>
-            <p class="text-lg text-gray-700 mb-4 text-left">
+            <h2 class="concept-heading"><span class="icon">🤔</span> 聴くことの難しさ：なぜ私たちは失敗するのか？</h2>
+            <p class="text-lg text-gray-700 mb-4">
                 相手がただ話を聞いてほしい時でも、私たちはついこんな行動をとってしまいます。
             </p>
             <div class="diagram-box">
@@ -79,7 +182,7 @@
                 <p class="arrow">↓</p>
                 <p>🚫 相手の話を遮ってしまう、余計なアドバイスをしてしまう</p>
             </div>
-            <p class="text-lg text-gray-700 text-left">
+            <p class="text-lg text-gray-700">
                 また、相手が「気持ち良い」と感じる聴き方は、人それぞれ、状況それぞれで変化します。
                 巷には「傾聴」や「聴き方」に関する本が溢れていますが、
                 それは裏を返せば「本当に上手くいっている人が少ない」という証拠。
@@ -89,8 +192,8 @@
 
         <!-- Section 3: 「聴く」は練習が必要 -->
         <div class="concept-section">
-            <h2 class="concept-heading"><span class="icon">🏋️</span> 「聴く」は練習が必要</h2>
-            <p class="text-lg text-gray-700 mb-4 text-left">
+            <h2 class="concept-heading"><span class="icon">🏋️</span> 「聴く」は練習が必要：実践が成功への鍵</h2>
+            <p class="text-lg text-gray-700 mb-4">
                 「聞いてもらってありがとう」と言われるためには、練習が不可欠です。
                 私たちの提供する「ホスティング」が、その練習方法の一つとして最適だと考えています。
             </p>
@@ -101,16 +204,16 @@
                 <p class="arrow">↓</p>
                 <p><strong>🤝 知識だけでなく、実践と振り返りの繰り返し</strong></p>
             </div>
-            <p class="text-lg text-gray-700 text-left">
+            <p class="text-lg text-gray-700">
                 一流のホテルマンになるのが大変なように、単なる知識だけでは「聴く」ことは上達しません。
                 まず知識を学び、練習を繰り返し、うまくいかなかったらその原因を考える、このプロセスが重要です。
             </p>
         </div>
 
         <!-- Section 4: 私たちの講座の特徴：実践メソッド -->
-        <div class="concept-section">
+        <div class="concept-section" id="course-details">
             <h2 class="concept-heading"><span class="icon">💡</span> 私たちの講座の特徴：実践メソッド</h2>
-            <p class="text-lg text-gray-700 mb-4 text-left">
+            <p class="text-lg text-gray-700 mb-4">
                 私たちの講座の大きな特徴は、その「練習のメソッド」を提供することです。
             </p>
             <div class="diagram-box">
@@ -122,11 +225,22 @@
                 <p class="arrow">↓</p>
                 <p>🏆 「聴く」も同じ。ただ聞くのではなく、効果的な「聴き方」のコツと練習で上達する</p>
             </div>
-            <p class="text-lg text-gray-700 text-left">
+            <p class="text-lg text-gray-700">
                 単に知識を詰め込むだけでなく、実践を通して本当の「聴く力」を身につけるためのカリキュラムを提供します。
             </p>
         </div>
 
+        <!-- コールトゥアクションセクション -->
+        <div class="concept-section flex flex-col items-center justify-center !bg-blue-600 !text-white">
+            <h2 class="text-3xl font-bold mb-6 text-white">「聴く力」を身につけ、人間関係を豊かにしませんか？</h2>
+            <p class="text-xl mb-8">私たちの実践的なホスティング講座で、あなたの「聴く」を次のレベルへ。</p>
+            <a href="#" class="cta-button !bg-white !text-blue-600 hover:!bg-gray-100">今すぐ無料体験を予約する</a>
+        </div>
     </div>
+
+    <!-- フッター -->
+    <footer class="footer-section w-full">
+        <p>&copy; 2025 聴くことの真髄：心に寄り添うホスティング. All rights reserved.</p>
+    </footer>
 </body>
 </html>
